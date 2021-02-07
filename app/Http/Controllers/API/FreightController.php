@@ -49,20 +49,20 @@ class FreightController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Freight  $freight
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response\JSON
      */
     public function update(Request $request, Freight $freight)
     {
         $validation = Validator::make($request->all(), [
-            'freight_name' => ['required', 'unique:freights'],
-            'freight_speditor_name' => ['required', 'unique:freights'],
+            'freight_name' => ['required', 'unique:freights,freight_name,' . $freight->id],
+            'freight_speditor_name' => ['required', 'unique:freights,freight_speditor_name,' . $freight->id],
             'freight_weights' => ['required']
         ]);
 
         if($validation->fails()) {
             return response()->json(['errors' => $validation->errors()], 422);
         } else {
-            $freight = $freight->update($request->all());
+            $freight->update($request->all());
 
             return response()->json(['freight' => $freight], 200);
         }

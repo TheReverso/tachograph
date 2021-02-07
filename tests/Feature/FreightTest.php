@@ -182,7 +182,8 @@ class FreightTest extends TestCase
      * Test success update record
      */
 
-     public function testCorrectResponseOnUpdate() {
+    public function testCorrectResponseOnUpdate()
+    {
         Passport::actingAs($this->user);
         $freight = Freight::factory()->create();
 
@@ -194,7 +195,7 @@ class FreightTest extends TestCase
 
         $this->putJson(route('freights.update', $freight), $body, ['Accept' => 'application/json'])
             ->assertStatus(200);
-     }
+    }
 
     /**
      * Test for check allow delete record

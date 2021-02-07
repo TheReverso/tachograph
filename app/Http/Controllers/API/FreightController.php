@@ -13,7 +13,7 @@ class FreightController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response\JSON
      */
     public function index()
     {
@@ -25,7 +25,7 @@ class FreightController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response\JSON
      */
     public function store(Request $request)
     {
@@ -72,7 +72,7 @@ class FreightController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Freight  $freight
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response\JSON
      */
     public function destroy(Freight $freight)
     {

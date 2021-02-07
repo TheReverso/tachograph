@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\CountryController;
 use App\Http\Controllers\API\FreightController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,4 @@ Route::post('register', [AuthController::class, 'register'])->name('register');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 
 Route::apiResource('freights', FreightController::class)->middleware('auth:api')->except('show');
+Route::apiResource('countries', CountryController::class)->middleware('auth:api')->except('show');

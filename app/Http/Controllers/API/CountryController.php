@@ -8,7 +8,6 @@ use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-
 class CountryController extends Controller
 {
     /**
@@ -62,7 +61,7 @@ class CountryController extends Controller
         } else {
             $country->update($request->all());
 
-            return response()->json(['freight' => $country], 200);
+            return response()->json(['country' => $country], 200);
         }
     }
 
